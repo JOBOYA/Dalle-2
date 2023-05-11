@@ -27,25 +27,18 @@ const Home = () => {
 
     try {
       const response = await fetch('https://dalle-sxs9.onrender.com/api/v1/post', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
-  },
-});
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
 
-      
-      const responseBody = await response.text();
-      console.log('Response body:', responseBody);
+        },
+      });
 
-      const text = await response.text();
-      console.log(text);
-      
+
       if (response.ok) {
-        const result = JSON.parse(responseBody);
+        const result = await response.json();
         setAllPosts(result.data.reverse());
       }
-      
     } catch (err) {
       alert(err);
     } finally {
