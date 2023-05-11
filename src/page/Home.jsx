@@ -27,11 +27,13 @@ const Home = () => {
 
     try {
       const response = await fetch('https://dalle-sxs9.onrender.com/api/v1/post', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+  },
+});
+
       
       const responseBody = await response.text();
       console.log('Response body:', responseBody);
