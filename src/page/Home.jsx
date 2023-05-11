@@ -32,11 +32,15 @@ const Home = () => {
           'Content-Type': 'application/json',
         },
       });
-
+      
+      const responseBody = await response.text();
+      console.log('Response body:', responseBody);
+      
       if (response.ok) {
-        const result = await response.json();
+        const result = JSON.parse(responseBody);
         setAllPosts(result.data.reverse());
       }
+      
     } catch (err) {
       alert(err);
     } finally {
