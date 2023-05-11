@@ -37,6 +37,9 @@ const Home = () => {
       
       const responseBody = await response.text();
       console.log('Response body:', responseBody);
+
+      const text = await response.text();
+      console.log(text);
       
       if (response.ok) {
         const result = JSON.parse(responseBody);
