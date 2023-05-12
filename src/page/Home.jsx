@@ -34,7 +34,7 @@ const Home = () => {
         },
       });
 
-
+//create post
       if (response.ok) {
         const result = await response.json();
         setAllPosts(result.data.reverse());
